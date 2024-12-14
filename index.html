@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Vanilla</title>
+</head>
+
+<body>
+
+    <!-- First Section: Upload Recommendation Image -->
+    <div class="container">
+        <div>
+            <img id="logo" src="static/images/logo.svg" alt="Vanilla" />
+            <h1>Vanilla</h1>
+            <p>Your style complete in one touch!</p>
+    
+            <!-- Upload Image Form -->
+            <form id="form_recommendation">
+                <!-- Hidden File Input -->
+                <input type="file" id="file_input_recommend" name="file" style="display: none;" onchange="handleFileSelect(event, 'recommend');">
+                
+                <!-- Upload Image Button -->
+                <button type="button" class="upload-btn" onclick="document.getElementById('file_input_recommend').click();">
+                    Upload Image
+                </button>
+            </form>
+    
+            <!-- Run the Model Form -->
+            <button type="submit" id="recommend" class="run-btn">Run the Model</button>
+        </div>
+
+        <div class="image-container">
+            <p id="text_recommend">Start by uploading your image</p>
+            <img id="image_recommend" src="" alt="Uploaded Image" style="display:none;" />
+        </div>
+    </div>
+
+    <!-- Second Section: Display Recommendations -->
+    <div id="recommendationsSection"></div>
+    <div id=recommendationsContainer></div>
+         
+            
+        
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

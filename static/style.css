@@ -1,0 +1,229 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Aref Ruqaa', serif;
+    background-color: white;  /* Set the background color of the entire page to white */
+    padding: 20px;
+    color: black;  /* Ensure text is visible on the white background */
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    margin: 40px;
+}
+
+/* Image Styling */
+.image-container {
+    display: flex;             /* Enable Flexbox */
+    justify-content: center;    /* Center the content horizontally */
+    align-items: center;        /* Center the content vertically */
+    flex-direction: column;     /* Stack the elements vertically */
+    height: 700px;
+    width: 50%;
+    text-align: center;        /* Ensures text inside container is centered */
+    background-color: #FFF6D8;
+}
+
+.image-container img {
+    display: flex;
+    height: 100%;
+    width: auto;
+}
+
+#logo {
+    display: flex;
+    height: auto;
+    width: 120%;
+}
+
+#img-detection {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+#img-segmentation {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+.image-container p {
+    font-size: 18px;
+    color: #232323;
+
+}
+
+.text-container {
+    flex: 1;  /* Take up equal space */
+    max-width: 50%;  /* Ensure the text doesn't take up too much space */
+}
+
+
+h1 {
+    font-size: 48px;
+    color: #232323;
+    text-align: left;
+}
+
+p {
+    font-size: 24px;
+    color: #FFB23C;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+    
+}
+
+button {
+    background-color: #FFE28F;
+    color: #232323;
+    font-family: 'Aref Ruqaa', serif;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #FFCE40;
+}
+
+/* Style for the titles under the image */
+.image-titles {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.image-titles h2 {
+    font-size: 36px;
+    color: #FFB23C;
+    margin-bottom: 10px;
+}
+
+.image-titles h3 {
+    font-size: 30px;
+    color: black;
+}
+
+/* New Clothing Items Section */
+#recommendationsContainer {
+    max-height: 600px;
+    width: 1379px;
+    overflow-y: hidden;
+    margin-top: 40px;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    /* display: flex; */
+}
+
+.clothing-item {
+    width: 230px;
+    height: 500px;
+    float: left;
+    margin: 1em;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* display: flex; */
+     
+}
+
+.clothing-item img {
+    width: 230px;
+    height: 400px;
+    object-fit: cover;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.clothing-item h4 {
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.clothing-item p {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
+/* New Detection and Segmentation Title */
+.detection-title {
+    font-size: 36px;
+    color: black;
+    text-align: left; /* Left align the title */
+    margin-top: 40px; /* Add some space above the title */
+    margin-left: 20px; /* Add space from the left edge */
+}
+/* New Center-Aligned Section */
+.center-aligned-container {
+    width: 1280px;
+    height: 464.25px;
+    display: flex;
+    justify-content: center; /* Center the container */
+    gap: 30px; /* Add space between the two elements */
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detection-element, .segmentation-element {
+    width: 624.5px;
+    height: 464.25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detection-element img, .segmentation-element img {
+    width: 624.5px;
+    height: 316.25px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detection-element h4, .segmentation-element h4 {
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.detection-element p, .segmentation-element p {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
+
