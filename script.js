@@ -1,4 +1,4 @@
-const apiUrl = "http://0.0.0.0:5004";
+const apiUrl = "http://54.162.132.249:8000";
 
 var recommend_img;
 // Handle image selection from file input
@@ -42,10 +42,15 @@ async function uploadImage(formData, task) {
 function displayUploadedImage(task, imageUrl) {
     const uploadedImageElement = document.getElementById(`image_${task}`);
     const uploadedImageMessage = document.getElementById(`text_${task}`);
+    const segmentImageMessage = document.getElementById("segment_image");
     
+    console.log(`imageUrl: ${imageUrl}`);
     uploadedImageElement.src = imageUrl;
     uploadedImageElement.style.display = "block";
     uploadedImageMessage.style.display = "none";
+    if(task == "segment") {
+        segmentImageMessage.style.display = "none";
+    }
 }
 
 // Handle "Run the Model" button click
@@ -125,4 +130,4 @@ function displayRecommendations(user_image_class, recommendations) {
     
 }
 
-
+// python3 -m http.server 8000

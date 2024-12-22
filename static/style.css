@@ -40,6 +40,12 @@ body {
     width: auto;
 }
 
+.image-container-seg img {
+    display: flex;
+    height: 10%;
+    width: 10%;
+}
+
 #logo {
     display: flex;
     height: auto;

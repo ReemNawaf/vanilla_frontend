@@ -43,7 +43,39 @@
     <div id=recommendationsContainer></div>
          
             
+    <!-- Third Section: Segmentation -->
+    <h1 class="segmentation-title">Segmentation</h1>
+    <div class="container">
+        <div>
+            <h2>Segmentation Mask</h2>
+            <p>Description for the Segmentation Mask</p>
+    
+            <!-- Upload Image Form -->
+            <form id="form_segmentation">
+                <!-- Hidden File Input -->
+                <input type="file" id="file_input_segment" name="file" style="display: none;" onchange="handleFileSelect(event, 'segment');">
+                
+                <!-- Upload Image Button -->
+                <button type="button" class="upload-btn" onclick="document.getElementById('file_input_segment').click();">
+                    Upload Image
+                </button>
+            </form>
+    
+            <!-- Run the Model Form -->
+            <button type="submit" id="segment" class="run-btn">Run the Model</button>
+        </div>
+
+        <div class="image-container">
+            
+            <img id="image_segment" src="static/images/clothes segmentation.png" alt="Uploaded Image" style="display:block;" />
         
+            <!-- <img id="img-segmentation" src="{{url_for('static', filename='images/clothes segmentation.png')}}" alt="Segmentation Mask" display="none" /> -->
+           
+        </div>
+    </div>
+
+
+   
     
 
     <script src="script.js"></script>
