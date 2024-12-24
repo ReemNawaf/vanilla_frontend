@@ -40,10 +40,21 @@ body {
     width: auto;
 }
 
+.image-container-seg {
+    display: flex;             /* Enable Flexbox */
+    justify-content: center;    /* Center the content horizontally */
+    align-items: center;        /* Center the content vertically */
+    flex-direction: column;     /* Stack the elements vertically */
+    height: 700px;
+    width: 50%;
+    text-align: center;        /* Ensures text inside container is centered */
+    background-color: #FFF6D8;
+}
+
 .image-container-seg img {
     display: flex;
-    height: 10%;
-    width: 10%;
+    height: 100%;
+    width: auto;
 }
 
 #logo {
@@ -144,6 +155,19 @@ button:hover {
     /* display: flex; */
 }
 
+/* New Clothing Items Section */
+#segmentationContainer {
+    max-height: 600px;
+    width: 1379px;
+    overflow-y: hidden;
+    margin-top: 40px;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    /* display: flex; */
+}
+
 .clothing-item {
     width: 230px;
     height: 500px;
@@ -158,9 +182,31 @@ button:hover {
      
 }
 
+.segment-item {
+    width: 900px;
+    height: 900px;
+    float: left;
+    margin: 1em;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* display: flex; */
+     
+}
+
 .clothing-item img {
     width: 230px;
     height: 400px;
+    object-fit: cover;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.segment-item img {
+    width: 160%;
+    height: 160%;
     object-fit: cover;
     justify-content: center;
     border-radius: 10px;

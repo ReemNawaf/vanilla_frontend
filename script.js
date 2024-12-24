@@ -1,12 +1,12 @@
-const apiUrl = "http://54.162.132.249:8000";
+const apiUrl = "http://0.0.0.0:8000";
 
-var recommend_img;
+var user_img;
 // Handle image selection from file input
 function handleFileSelect(event, task) {
     const fileInput = event.target;
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
-    recommend_img = formData;
+    user_img = formData;
     // Upload the image to the backend API
     uploadImage(formData, task);
 }
@@ -61,7 +61,7 @@ document.getElementById('recommend').addEventListener('click', async () => {
     try {
         recommendationsSection.innerHTML = "Running model...";
 
-        for (var pair of recommend_img.entries()) {
+        for (var pair of user_img.entries()) {
             console.log(pair[0]+ ', ' + pair[1].name); 
         }
 
@@ -69,7 +69,7 @@ document.getElementById('recommend').addEventListener('click', async () => {
         
         const response = await fetch(`${apiUrl}/recommend`, {
             method: 'POST',
-            body: recommend_img
+            body: user_img
         });
         
         if (!response.ok) throw new Error(`Error running model: ${response.statusText}`);
@@ -84,6 +84,36 @@ document.getElementById('recommend').addEventListener('click', async () => {
     }
 });
 
+// Handle "Run the Model" button click
+document.getElementById('segment').addEventListener('click', async () => {
+    console.log("Running model...");
+    const segmentationSection = document.getElementById('segmentationSection');
+
+    try {
+        segmentationSection.innerHTML = "Running model...";
+
+        for (var pair of user_img.entries()) {
+            console.log(pair[0]+ ', ' + pair[1].name); 
+        }
+
+        console.log(`xx: ${apiUrl}/segment`);
+        
+        const response = await fetch(`${apiUrl}/segment`, {
+            method: 'POST',
+            body: user_img
+        });
+        
+        if (!response.ok) throw new Error(`Error running model: ${response.statusText}`);
+        
+        const data = await response.json();
+        console.log(data);
+        displaySegmentation(data.original, data.segmented);
+
+        segmentationSection.style.display = "block";
+    } catch (error) {
+        segmentationSection.innerHTML = `Model run failed: ${error.message}`;
+    }
+});
 
 // Display model recommendations
 function displayRecommendations(user_image_class, recommendations) {
@@ -130,4 +160,29 @@ function displayRecommendations(user_image_class, recommendations) {
     
 }
 
-// python3 -m http.server 8000
+
+// Display model recommendations
+function displaySegmentation(original, segmented) {
+    const segmentationSection = document.getElementById('segmentationSection');
+    segmentationSection.innerHTML = ''; // Clear any existing content
+    
+    // Create the recommendation element
+    const rElement = document.createElement('div');
+    rElement.classList.add('image-titles'); // Add class after element is created
+
+    segmentationSection.appendChild(rElement);
+    segmentationSection.style.display = "block";
+
+    const segmentationImage = document.getElementById('image_segmen');
+    segmentationImage.src = segmented;
+    segmentationImage.style.display = "block";
+
+    const segmentationImage1 = document.getElementById('image_segment_');
+    segmentationImage1.style.display = "block";
+    
+    
+}
+
+
+
+// python3 -m http.server 8005
