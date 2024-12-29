@@ -1,4 +1,4 @@
-const apiUrl = "http://0.0.0.0:8000";
+const apiUrl = "http://44.200.113.238:8000";
 
 var user_img;
 // Handle image selection from file input
@@ -28,9 +28,9 @@ async function uploadImage(formData, task) {
         const data = await response.json();
 
         console.log(data);
-        console.log(data.imageUrl);
+        console.log();
 
-        displayUploadedImage(task, data.imageUrl);
+        displayUploadedImage(task);
 
         console.log("Image uploaded successfully!");
     } catch (error) {
@@ -39,10 +39,15 @@ async function uploadImage(formData, task) {
 }
 
 // Display uploaded image
-function displayUploadedImage(task, imageUrl) {
+function displayUploadedImage(task) {
     const uploadedImageElement = document.getElementById(`image_${task}`);
     const uploadedImageMessage = document.getElementById(`text_${task}`);
     const segmentImageMessage = document.getElementById("segment_image");
+    
+    imageUrl = `${apiUrl}/app/images/upload/recommendation/user_image.jpg`
+    if(task == "segment") {
+        imageUrl = `${apiUrl}/app/images/upload/segmentation/user_image.jpg`
+    }
     
     console.log(`imageUrl: ${imageUrl}`);
     uploadedImageElement.src = imageUrl;
@@ -107,7 +112,7 @@ document.getElementById('segment').addEventListener('click', async () => {
         
         const data = await response.json();
         console.log(data);
-        displaySegmentation(data.original, data.segmented);
+        displaySegmentation();
 
         segmentationSection.style.display = "block";
     } catch (error) {
@@ -146,8 +151,10 @@ function displayRecommendations(user_image_class, recommendations) {
         recommendationElement.classList.add('clothing-item');
 
         // Set inner HTML dynamically using template literals
+        imagePath = `${apiUrl}/app/images/results/recommendation/recommended_${i}.jpg`
+        
         recommendationElement.innerHTML = `
-            <img src=${item.path} alt="Recommended Image" />
+            <img src=${imagePath} alt="Recommended Image" />
             <h4>Label: ${item.label}</h4>
             <p>Similarity: ${item.similarity}</p>
         `;
@@ -162,7 +169,7 @@ function displayRecommendations(user_image_class, recommendations) {
 
 
 // Display model recommendations
-function displaySegmentation(original, segmented) {
+function displaySegmentation() {
     const segmentationSection = document.getElementById('segmentationSection');
     segmentationSection.innerHTML = ''; // Clear any existing content
     
@@ -174,7 +181,10 @@ function displaySegmentation(original, segmented) {
     segmentationSection.style.display = "block";
 
     const segmentationImage = document.getElementById('image_segmen');
+
+    segmented = `${apiUrl}/app/images/results/segmentation/segmented_image.jpg`
     segmentationImage.src = segmented;
+    
     segmentationImage.style.display = "block";
 
     const segmentationImage1 = document.getElementById('image_segment_');
