@@ -101,9 +101,9 @@ document.getElementById('segment').addEventListener('click', async () => {
             console.log(pair[0]+ ', ' + pair[1].name); 
         }
 
-        console.log(`xx: ${apiUrl}/segment`);
+        console.log(`xx: /api/segment`);
         
-        const response = await fetch(`${apiUrl}/segment`, {
+        const response = await fetch(`/api/segment`, {
             method: 'POST',
             body: user_img
         });
