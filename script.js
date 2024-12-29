@@ -102,7 +102,7 @@ document.getElementById('segment').addEventListener('click', async () => {
         }
 
         console.log(`xx: ${apiUrl}/segment`);
-        
+
         const response = await fetch(`${apiUrl}/segment`, {
             method: 'POST',
             body: user_img
