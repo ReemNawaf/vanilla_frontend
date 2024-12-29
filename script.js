@@ -1,4 +1,4 @@
-const apiUrl = "https://44.200.113.238:8000";
+const apiUrl = "http://44.200.113.238:8000";
 
 var user_img;
 // Handle image selection from file input
