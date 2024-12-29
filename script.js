@@ -194,5 +194,11 @@ function displaySegmentation() {
 }
 
 
+function openPDF() {
+    console.log("Opening PDF...");
+    window.open('static/vanilla_personalized_outfit_recommendation_system.pdf', '_blank');
+}
+
+
 
 // python3 -m http.server 8005
